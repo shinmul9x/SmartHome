@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_mobile"
+    app:startDestination="@id/nav_home">
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.smarthome.main.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_room"
+        android:name="com.example.smarthome.main.room.RoomFragment"
+        android:label="@string/menu_room"
+        tools:layout="@layout/fragment_room" />
+    <fragment
+        android:id="@+id/nav_device"
+        android:name="com.example.smarthome.main.device.DeviceFragment"
+        android:label="@string/menu_device"
+        tools:layout="@layout/fragment_device" />
+    <fragment
+        android:id="@+id/nav_service"
+        android:label="@string/menu_service"
+        tools:layout="@layout/fragment_service" />
+    <fragment
+        android:id="@+id/nav_auth_service"
+        android:label="@string/menu_auth_service"
+        tools:layout="@layout/fragment_auth_service" />
+</navigation>

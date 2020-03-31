@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item
+        android:id="@+id/nav_home"
+        android:title="@string/menu_home" />
+    <item
+        android:id="@+id/nav_room"
+        android:title="@string/menu_room" />
+    <item
+        android:id="@+id/nav_device"
+        android:title="@string/menu_device" />
+    <item
+        android:id="@+id/nav_service"
+        android:title="@string/menu_service" />
+    <item
+        android:id="@+id/nav_auth_service"
+        android:title="@string/menu_auth_service" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="@string/menu_logout" />
 </menu>

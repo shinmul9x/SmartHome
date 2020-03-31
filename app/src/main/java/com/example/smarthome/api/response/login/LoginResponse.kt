@@ -1,4 +1,4 @@
-package com.example.smarthome.api
+package com.example.smarthome.api.response.login
 
 import com.google.gson.annotations.SerializedName
 

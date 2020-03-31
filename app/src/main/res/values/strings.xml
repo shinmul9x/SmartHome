@@ -7,4 +7,11 @@
     <string name="activity_login_label">Login</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_room">Room</string>
+    <string name="menu_device">Device</string>
+    <string name="menu_service">Service</string>
+    <string name="menu_auth_service">Auth Service</string>
+    <string name="menu_logout">Logout</string>
+    <string name="activity_main_label">Home</string>
 </resources>

@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorButtonNormal">@color/buttonColor</item>
+        <item name="actionBarStyle">@style/Widget.MaterialComponents.AppBarLayout.Surface</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

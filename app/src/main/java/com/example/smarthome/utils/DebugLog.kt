@@ -6,7 +6,7 @@ import java.util.regex.Pattern
 class DebugLog {
     private val prefixTag = "SMART_HOME"
 
-    fun log(msg: String) {
+    fun d(msg: String) {
         Log.d(getTag(), msg)
     }
 

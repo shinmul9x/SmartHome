@@ -24,7 +24,7 @@ class PreferencesUtil {
         val sharedPref =
             context.getSharedPreferences(preferenceFile, Context.MODE_PRIVATE) ?: return
         sharedPref.edit().putString(key, value).apply()
-        DebugLog().log("<< put String >> key:$key value:$value")
+        DebugLog().d("<< put String >> key:$key value:$value")
     }
 
     private fun getString(context: Context, key: String): String {
@@ -38,6 +38,6 @@ class PreferencesUtil {
         val sharedPref =
             context.getSharedPreferences(preferenceFile, Context.MODE_PRIVATE) ?: return
         sharedPref.edit().remove(key).apply()
-        DebugLog().log("<< remove String >> key:$key")
+        DebugLog().d("<< remove String >> key:$key")
     }
 }

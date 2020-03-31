@@ -2,7 +2,7 @@ package com.example.smarthome.login
 
 import android.content.Context
 import com.example.smarthome.api.ApiManager
-import com.example.smarthome.api.LoginResponse
+import com.example.smarthome.api.response.login.LoginResponse
 import com.example.smarthome.utils.DebugLog
 import com.example.smarthome.utils.PreferencesUtil
 import retrofit2.Call
@@ -24,12 +24,12 @@ class LoginPresenter(val context: Context) : ILoginContract.IPresenterContract {
                             PreferencesUtil().putToken(context, token!!)
                         }
                     } else {
-                        DebugLog().log("${response.code()}: ${response.message()}")
+                        DebugLog().d("${response.code()}: ${response.message()}")
                     }
                 }
 
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                    DebugLog().log("call api fail")
+                    DebugLog().d("call api fail")
                 }
             })
 
