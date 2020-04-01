@@ -14,4 +14,6 @@
     <string name="menu_auth_service">Auth Service</string>
     <string name="menu_logout">Logout</string>
     <string name="activity_main_label">Home</string>
+    <string name="activity_room_label">Room</string>
+    <string name="activity_device_label">Device</string>
 </resources>

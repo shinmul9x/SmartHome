@@ -2,13 +2,13 @@ package com.example.smarthome.api.response.home
 
 import com.google.gson.annotations.SerializedName
 
-data class DataItem(
+data class Home(
 
 	@field:SerializedName("home_name")
 	val homeName: String? = null,
 
 	@field:SerializedName("home_id")
-	val homeId: Int? = null,
+	val homeId: String? = null,
 
 	@field:SerializedName("username")
 	val username: String? = null

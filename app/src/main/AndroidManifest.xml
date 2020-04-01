@@ -15,8 +15,8 @@
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/activity_login_label"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".main.MainActivity"
             android:label="@string/activity_main_label"
@@ -24,11 +24,20 @@
         <activity
             android:name=".main2.MainActivity"
             android:label="@string/activity_main_label"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".room.RoomActivity"
+            android:label="@string/activity_room_label"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".device.DeviceActivity"
+            android:label="@string/activity_device_label"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

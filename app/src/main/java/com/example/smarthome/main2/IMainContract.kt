@@ -1,6 +1,6 @@
 package com.example.smarthome.main2
 
-import com.example.smarthome.main2.home.Home
+import com.example.smarthome.api.response.home.Home
 
 interface IMainContract {
     interface IPresenterContract {
@@ -9,6 +9,6 @@ interface IMainContract {
     }
 
     interface IViewContract {
-        fun onGetHomeListSuccess(homes: ArrayList<Home>)
+        fun onGetHomeListSuccess(homes: ArrayList<Home?>)
     }
 }

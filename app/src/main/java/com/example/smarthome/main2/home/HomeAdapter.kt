@@ -1,26 +1,25 @@
 package com.example.smarthome.main2.home
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smarthome.R
+import com.example.smarthome.api.response.home.Home
 import com.google.android.material.textview.MaterialTextView
-import kotlinx.android.synthetic.main.row_home.view.*
+import kotlinx.android.synthetic.main.item_home.view.*
 
 class HomeAdapter(
-    private val context: Context,
-    private var list: ArrayList<Home>
+    private var list: ArrayList<Home?>,
+    private val listener: IHomeAdapterHelper
 ) :
     RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val viewHolder = inflater.inflate(R.layout.row_home, parent, false)
-        return HomeViewHolder(context, viewHolder)
+        val viewHolder = inflater.inflate(R.layout.item_home, parent, false)
+        return HomeViewHolder(viewHolder, listener)
     }
 
     override fun getItemCount(): Int {
@@ -28,25 +27,30 @@ class HomeAdapter(
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.bind(list[position])
+        holder.bind(list[position]!!)
     }
 
-    fun setList(value: ArrayList<Home>) {
+    fun setList(value: ArrayList<Home?>) {
         list = value
         notifyDataSetChanged()
     }
 
-    class HomeViewHolder(private val context: Context, itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var tvHomeName: MaterialTextView = itemView.tv_title
-        private var btnDelete: ImageButton = itemView.btn_delete
-        private var cvContainer = itemView.cv_home
-        private var homeId: Int? = null
+    class HomeViewHolder(itemView: View, private val listener: IHomeAdapterHelper) :
+        RecyclerView.ViewHolder(itemView) {
+        private val tvHomeName: MaterialTextView = itemView.tv_title
+        private val btnDelete: ImageButton = itemView.btn_delete
+        private val cvContainer = itemView.cv_home
+        private var homeId: String? = ""
 
         fun bind(home: Home) {
-            homeId = home.id
-            tvHomeName.text = home.name
+            homeId = home.homeId
+            tvHomeName.text = home.homeName
             cvContainer.setOnClickListener {
-                Toast.makeText(context, "$homeId", Toast.LENGTH_SHORT).show()
+                listener.onClickHomeItem(home)
+            }
+
+            btnDelete.setOnClickListener {
+                //todo call api delete home
             }
         }
     }

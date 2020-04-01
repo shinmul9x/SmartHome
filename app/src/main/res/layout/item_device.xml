@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="160dp"
     android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:backgroundTint="#DEDEDE"
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,18 +15,28 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tv_device_type"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
-            android:text="My Home"
+            android:text="Air Cordinate"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textColor="#DE000000"
             app:layout_constraintEnd_toStartOf="@id/divider"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_device_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="hello"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintEnd_toEndOf="@id/tv_device_type"
+            app:layout_constraintStart_toStartOf="@id/tv_device_type"
+            app:layout_constraintTop_toBottomOf="@id/tv_device_type" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btn_delete"

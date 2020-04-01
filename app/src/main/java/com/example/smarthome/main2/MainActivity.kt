@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initBottomNav() {
-//        setSupportActionBar(toolbar_main)
+        setSupportActionBar(toolbar_main)
         appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_home, R.id.nav_service))
         navController = findNavController(R.id.fragment_host)
         setupActionBarWithNavController(navController, appBarConfiguration)
