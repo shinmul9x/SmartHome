@@ -12,7 +12,7 @@ import retrofit2.Response
 class RoomPresenter(private val context: Context, private val view: IRoomContract.IViewContract) :
     IRoomContract.IPresenterContract {
     override fun getRoomList(homeId: String) {
-        ApiManager().getApiService()
+        ApiManager().getApiService(context)
             .getRoomList(PreferencesUtil().getToken(context), homeId)
             .enqueue(object : Callback<RoomResponse> {
                 override fun onResponse(
@@ -20,7 +20,8 @@ class RoomPresenter(private val context: Context, private val view: IRoomContrac
                     response: Response<RoomResponse>
                 ) {
                     if (response.code() == 200) {
-                        view.onGetRoomListSuccess(ArrayList(response.body()?.data!!))
+                        val rooms = response.body()?.data ?: return
+                        view.onGetRoomListSuccess(ArrayList(rooms))
                     } else {
                         DebugLog().d("${response.code()}: ${response.message()}")
                     }

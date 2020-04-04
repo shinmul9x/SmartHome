@@ -7,11 +7,17 @@ class ApiClient {
     private var retrofit: Retrofit? = null
     fun getClient(baseUrl: String): Retrofit? {
         if (retrofit == null) {
-            retrofit = Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+            retrofit = buildRetrofit(baseUrl)
+        } else if (retrofit?.baseUrl()?.equals(baseUrl)!!) {
+            retrofit = buildRetrofit(baseUrl)
         }
         return retrofit
+    }
+
+    private fun buildRetrofit(baseUrl: String): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
     }
 }

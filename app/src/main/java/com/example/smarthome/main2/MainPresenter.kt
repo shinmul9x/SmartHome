@@ -14,10 +14,11 @@ class MainPresenter(private val context: Context, private val view: IMainContrac
 
     override fun getHomeList() {
         val token = PreferencesUtil().getToken(context)
-        ApiManager().getApiService().getHomeList(token).enqueue(object : Callback<HomeResponse> {
+        ApiManager().getApiService(context).getHomeList(token).enqueue(object : Callback<HomeResponse> {
             override fun onResponse(call: Call<HomeResponse>, response: Response<HomeResponse>) {
                 if (response.code() == 200) {
-                    view.onGetHomeListSuccess(ArrayList(response.body()?.data!!))
+                    val homes = response.body()?.data ?: return
+                    view.onGetHomeListSuccess(ArrayList(homes))
                 } else {
                     DebugLog().d("${response.code()}: ${response.message()}")
                 }

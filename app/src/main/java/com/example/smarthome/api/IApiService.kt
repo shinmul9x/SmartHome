@@ -26,7 +26,7 @@ interface IApiService {
         @Path(value = "home_id", encoded = true) homeId: String
     ): Call<RoomResponse>
 
-    @GET("/api/user/room/get-room-list/home/{home_id}/room/{room_id}")
+    @GET("/api/user/device/get-device-list/home/{home_id}/room/{room_id}")
     fun getDeviceList(
         @Header("x-access-token") token: String,
         @Path(value = "home_id", encoded = true) homeId: String,

@@ -16,4 +16,7 @@
     <string name="activity_main_label">Home</string>
     <string name="activity_room_label">Room</string>
     <string name="activity_device_label">Device</string>
+    <string name="activity_setting_label">Setting</string>
+    <string name="et_host_address_hint">Host Address</string>
+    <string name="btn_submit">Submit</string>
 </resources>

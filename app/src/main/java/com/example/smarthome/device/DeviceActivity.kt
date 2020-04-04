@@ -2,6 +2,8 @@ package com.example.smarthome.device
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.smarthome.R
 import com.example.smarthome.api.response.device.Device
 import com.example.smarthome.utils.HOME_ID_KEY
@@ -13,6 +15,7 @@ class DeviceActivity : AppCompatActivity(), IDeviceContract.IViewContract {
     private lateinit var presenter: IDeviceContract.IPresenterContract
     private var homeId: String? = ""
     private var roomId: String? = ""
+    private lateinit var deviceAdapter : DeviceAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +40,12 @@ class DeviceActivity : AppCompatActivity(), IDeviceContract.IViewContract {
         supportActionBar?.title = "Room: ${intent.getStringExtra(ROOM_NAME_KEY)}"
 
         presenter = DevicePresenter(this, this)
+
+        deviceAdapter = DeviceAdapter(ArrayList())
+        rv_device_list.apply {
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            adapter = deviceAdapter
+        }
     }
 
     private fun initActions() {
@@ -49,6 +58,6 @@ class DeviceActivity : AppCompatActivity(), IDeviceContract.IViewContract {
     }
 
     override fun onGetDeviceListSuccess(devices: ArrayList<Device?>) {
-        //todo
+        deviceAdapter.setList(devices)
     }
 }

@@ -7,6 +7,7 @@ class PreferencesUtil {
     private val preferenceFile = "preference_file"
     private val stringDefault = ""
     private val tokenKey = "token_value"
+    private val hostAddressKey = "host_address"
 
     fun putToken(context: Context, value: String) {
         putString(context, tokenKey, value)
@@ -18,6 +19,14 @@ class PreferencesUtil {
 
     fun removeToken(context: Context) {
         remove(context, tokenKey)
+    }
+
+    fun saveHostAddress(context: Context, value: String) {
+        putString(context, hostAddressKey, value)
+    }
+
+    fun getHostAddress(context: Context): String {
+        return getString(context, hostAddressKey)
     }
 
     private fun putString(context: Context, key: String, value: String) {

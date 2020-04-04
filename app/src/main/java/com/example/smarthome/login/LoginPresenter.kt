@@ -11,7 +11,7 @@ import retrofit2.Response
 
 class LoginPresenter(val context: Context) : ILoginContract.IPresenterContract {
     override fun verifyAccount(username: String, password: String): Boolean {
-        ApiManager().getApiService().getLoginToken(username, password)
+        ApiManager().getApiService(context).getLoginToken(username, password)
             .enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(
                     call: Call<LoginResponse>,

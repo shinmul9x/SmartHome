@@ -15,7 +15,7 @@ class DevicePresenter(
 ) : IDeviceContract.IPresenterContract {
 
     override fun getDeviceList(homeId: String, roomId: String) {
-        ApiManager().getApiService()
+        ApiManager().getApiService(context)
             .getDeviceList(PreferencesUtil().getToken(context), homeId, roomId)
             .enqueue(object : Callback<DeviceResponse> {
                 override fun onResponse(
@@ -23,14 +23,15 @@ class DevicePresenter(
                     response: Response<DeviceResponse>
                 ) {
                     if (response.code() == 200) {
-                        view.onGetDeviceListSuccess(ArrayList(response.body()?.data!!))
+                        val devices = response.body()?.data ?: return
+                        view.onGetDeviceListSuccess(ArrayList(devices))
                     } else {
                         DebugLog().d("${response.code()}: ${response.message()}")
                     }
                 }
 
                 override fun onFailure(call: Call<DeviceResponse>, t: Throwable) {
-
+                    DebugLog().d("${t.message}")
                 }
             })
     }
