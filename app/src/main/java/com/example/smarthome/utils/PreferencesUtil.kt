@@ -9,7 +9,7 @@ class PreferencesUtil {
     private val tokenKey = "token_value"
     private val hostAddressKey = "host_address"
 
-    fun putToken(context: Context, value: String) {
+    fun saveToken(context: Context, value: String) {
         putString(context, tokenKey, value)
     }
 

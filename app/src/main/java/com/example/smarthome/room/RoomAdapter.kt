@@ -5,10 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smarthome.R
-import com.example.smarthome.api.response.room.Room
+import com.example.smarthome.api.response.room.RoomItem
 import kotlinx.android.synthetic.main.item_room.view.*
 
-class RoomAdapter(private var list: ArrayList<Room?>, private val listener: IRoomAdapterHelper) :
+class RoomAdapter(
+    private var list: ArrayList<RoomItem?>,
+    private val listener: IRoomAdapterHelper
+) :
     RecyclerView.Adapter<RoomAdapter.RoomViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoomViewHolder {
@@ -25,7 +28,7 @@ class RoomAdapter(private var list: ArrayList<Room?>, private val listener: IRoo
         holder.bind(list[position]!!)
     }
 
-    fun setList(value: ArrayList<Room?>) {
+    fun setList(value: ArrayList<RoomItem?>) {
         list = value
         notifyDataSetChanged()
     }
@@ -37,9 +40,9 @@ class RoomAdapter(private var list: ArrayList<Room?>, private val listener: IRoo
         private val cvRoomItem = itemView.cv_room
         private val btnDelete = itemView.btn_delete
 
-        fun bind(room: Room) {
-            roomId = room.roomId
-            tvRoomName.text = room.roomName
+        fun bind(room: RoomItem) {
+            roomId = room.id.toString()
+            tvRoomName.text = room.id.toString()
             cvRoomItem.setOnClickListener {
                 listener.onClickRoomItem(room)
             }

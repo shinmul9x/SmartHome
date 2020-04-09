@@ -20,10 +20,15 @@ class RoomPresenter(private val context: Context, private val view: IRoomContrac
                     response: Response<RoomResponse>
                 ) {
                     if (response.code() == 200) {
-                        val rooms = response.body()?.data ?: return
+                        val rooms = response.body()?.room
+                        if (rooms == null) {
+                            view.onGetRoomListFail()
+                            return
+                        }
                         view.onGetRoomListSuccess(ArrayList(rooms))
                     } else {
                         DebugLog().d("${response.code()}: ${response.message()}")
+                        view.onGetRoomListFail()
                     }
                 }
 

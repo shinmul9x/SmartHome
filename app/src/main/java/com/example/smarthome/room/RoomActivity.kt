@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smarthome.R
-import com.example.smarthome.api.response.room.Room
+import com.example.smarthome.api.response.room.RoomItem
 import com.example.smarthome.device.DeviceActivity
 import com.example.smarthome.utils.HOME_ID_KEY
 import com.example.smarthome.utils.HOME_NAME_KEY
@@ -16,6 +16,7 @@ import com.example.smarthome.utils.ROOM_NAME_KEY
 import kotlinx.android.synthetic.main.activity_room.*
 
 class RoomActivity : AppCompatActivity(), IRoomContract.IViewContract, IRoomAdapterHelper {
+
     private lateinit var presenter: IRoomContract.IPresenterContract
     private lateinit var roomAdapter: RoomAdapter
     private var homeId: String? = ""
@@ -61,15 +62,20 @@ class RoomActivity : AppCompatActivity(), IRoomContract.IViewContract, IRoomAdap
         return super.onSupportNavigateUp()
     }
 
-    override fun onGetRoomListSuccess(rooms: ArrayList<Room?>) {
+    override fun onGetRoomListSuccess(rooms: ArrayList<RoomItem?>) {
         roomAdapter.setList(rooms)
     }
 
-    override fun onClickRoomItem(room: Room) {
+    override fun onGetRoomListFail() {
+        roomAdapter.setList(ArrayList())
+        Toast.makeText(this, "no room", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onClickRoomItem(room: RoomItem) {
         val intent = Intent(this, DeviceActivity::class.java)
         intent.putExtra(HOME_ID_KEY, homeId!!)
-        intent.putExtra(ROOM_ID_KEY, room.roomId)
-        intent.putExtra(ROOM_NAME_KEY, room.roomName)
+        intent.putExtra(ROOM_ID_KEY, room.id.toString())
+        intent.putExtra(ROOM_NAME_KEY, room.id.toString())
         startActivity(intent)
     }
 }

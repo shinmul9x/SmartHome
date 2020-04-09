@@ -1,4 +1,4 @@
-package com.example.smarthome.main2.home
+package com.example.smarthome.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.smarthome.R
-import com.example.smarthome.api.response.home.Home
+import com.example.smarthome.api.response.home.HomeItem
 import com.google.android.material.textview.MaterialTextView
 import kotlinx.android.synthetic.main.item_home.view.*
 
 class HomeAdapter(
-    private var list: ArrayList<Home?>,
+    private var list: ArrayList<HomeItem?>,
     private val listener: IHomeAdapterHelper
 ) :
     RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
@@ -30,7 +30,7 @@ class HomeAdapter(
         holder.bind(list[position]!!)
     }
 
-    fun setList(value: ArrayList<Home?>) {
+    fun setList(value: ArrayList<HomeItem?>) {
         list = value
         notifyDataSetChanged()
     }
@@ -42,9 +42,9 @@ class HomeAdapter(
         private val cvContainer = itemView.cv_home
         private var homeId: String? = ""
 
-        fun bind(home: Home) {
-            homeId = home.homeId
-            tvHomeName.text = home.homeName
+        fun bind(home: HomeItem) {
+            homeId = home.id.toString()
+            tvHomeName.text = home.id.toString()
             cvContainer.setOnClickListener {
                 listener.onClickHomeItem(home)
             }

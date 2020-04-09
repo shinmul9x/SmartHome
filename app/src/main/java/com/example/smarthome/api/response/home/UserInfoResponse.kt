@@ -2,11 +2,11 @@ package com.example.smarthome.api.response.home
 
 import com.google.gson.annotations.SerializedName
 
-data class HomeResponse(
+data class UserInfoResponse(
 
 	@field:SerializedName("success")
 	val success: Boolean? = null,
 
-	@field:SerializedName("home")
-	val home: List<HomeItem?>? = null
+	@field:SerializedName("homes")
+	val homes: List<HomeItem?>? = null
 )

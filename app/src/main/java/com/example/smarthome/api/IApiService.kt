@@ -2,25 +2,31 @@ package com.example.smarthome.api
 
 import com.example.smarthome.api.response.device.DeviceResponse
 import com.example.smarthome.api.response.home.HomeResponse
+import com.example.smarthome.api.response.home.UserInfoResponse
+import com.example.smarthome.api.response.login.Login2Response
 import com.example.smarthome.api.response.login.LoginResponse
 import com.example.smarthome.api.response.room.RoomResponse
 import retrofit2.Call
 import retrofit2.http.*
 
 interface IApiService {
-    @POST("/api/auth/login")
+    @POST("/api/login")
     @FormUrlEncoded
     fun getLoginToken(
-        @Field("username") username: String,
-        @Field("password") password: String
-    ): Call<LoginResponse>
+        @Field("username") username: String
+    ): Call<Login2Response>
 
-    @GET("/api/user/home/get-home-list")
+    @GET("/api/get-user-info")
+    fun getUserInfo(
+        @Header("x-access-token") token: String
+    ): Call<UserInfoResponse>
+
+    @GET("/api/get-home")
     fun getHomeList(
         @Header("x-access-token") token: String
     ): Call<HomeResponse>
 
-    @GET("/api/user/room/get-room-list/home/{home_id}")
+    @GET("/api/get-room/home/{home_id}")
     fun getRoomList(
         @Header("x-access-token") token: String,
         @Path(value = "home_id", encoded = true) homeId: String
