@@ -1,6 +1,7 @@
 package com.example.smarthome.login
 
 import android.content.Context
+import android.widget.Toast
 import com.example.smarthome.api.ApiManager
 import com.example.smarthome.api.response.login.Login2Response
 import com.example.smarthome.utils.DebugLog
@@ -33,7 +34,8 @@ class LoginPresenter(
                 }
 
                 override fun onFailure(call: Call<Login2Response>, t: Throwable) {
-                    DebugLog().d("call api fail")
+                    DebugLog().d("call api fail. " + t.message)
+                    Toast.makeText(context, "Connect failed...", Toast.LENGTH_SHORT).show()
                 }
             })
     }

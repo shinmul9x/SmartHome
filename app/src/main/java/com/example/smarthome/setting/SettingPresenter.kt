@@ -4,7 +4,7 @@ import android.content.Context
 import com.example.smarthome.utils.PreferencesUtil
 
 class SettingPresenter(private val context: Context) : ISettingContract.IPresenterContract {
-    override fun getGetHostAddress(): String {
+    override fun getHostAddress(): String {
         return PreferencesUtil().getHostAddress(context)
     }
 

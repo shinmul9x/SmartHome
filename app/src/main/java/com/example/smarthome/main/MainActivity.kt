@@ -13,7 +13,7 @@ import com.example.smarthome.utils.HOME_ID_KEY
 import com.example.smarthome.utils.HOME_NAME_KEY
 import kotlinx.android.synthetic.main.activity_main2.*
 
-class Main2Activity : AppCompatActivity(), IMainContract.IViewContract, IHomeAdapterHelper {
+class MainActivity : AppCompatActivity(), IMainContract.IViewContract, IHomeAdapterHelper {
     private lateinit var presenter: IMainContract.IPresenterContract
     private lateinit var homeAdapter: HomeAdapter
 

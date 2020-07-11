@@ -22,7 +22,7 @@ class SettingActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         presenter = SettingPresenter(this)
-        et_host_address.append(presenter.getGetHostAddress())
+        et_host_address.append(presenter.getHostAddress())
     }
 
     private fun initActions() {
@@ -30,6 +30,7 @@ class SettingActivity : AppCompatActivity() {
             val host = et_host_address.text.toString()
             presenter.saveHostAddress(host)
             Toast.makeText(this@SettingActivity, "submit", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 

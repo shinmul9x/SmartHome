@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<!--    android:background="#DEDEDE"-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,43 +20,31 @@
             app:elevation="0dp">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar_room"
+                android:id="@+id/toolbar_graph"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:title="@string/activity_room_label"
-                app:titleTextColor="@color/colorPrimary"
-                />
+                app:title="Chart"
+                app:titleTextColor="@color/colorPrimary" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_room_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:overScrollMode="never"
-                android:paddingTop="16dp"
-                android:paddingBottom="80dp"
-                android:paddingStart="4dp"
-                android:paddingEnd="0dp"/>
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rv_device_list"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:overScrollMode="never"-->
+<!--                android:paddingTop="8dp"-->
+<!--                android:paddingBottom="80dp" />-->
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_add_room"
-        style="@style/Widget.MaterialComponents.FloatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_add_white_24dp"
-        app:backgroundTint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/colorWhite"
-        android:visibility="invisible"/>
+<!--    <include-->
+<!--        android:id="@+id/progress_dialog"-->
+<!--        layout="@layout/layout_progress"-->
+<!--        android:visibility="gone" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DEDEDE"
     android:orientation="vertical">
 
     <LinearLayout
@@ -15,18 +14,20 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.AppBarLayout
-            style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
+            style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_device"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
+                app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 app:title="Device"
-                app:titleTextColor="@color/colorWhite" />
+                app:titleTextColor="@color/colorPrimary"
+                app:menu="@menu/menu_device"/>
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
@@ -38,20 +39,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:overScrollMode="never"
-                android:paddingTop="8dp"
+                android:paddingTop="16dp"
                 android:paddingBottom="80dp" />
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_add_device"
-        style="@style/Widget.MaterialComponents.FloatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_add_white_24dp"
-        app:backgroundTint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/colorWhite" />
+    <include
+        android:id="@+id/progress_dialog"
+        layout="@layout/layout_progress"
+        android:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

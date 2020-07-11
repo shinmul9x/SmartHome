@@ -6,7 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.smarthome.R
-import com.example.smarthome.main.Main2Activity
+import com.example.smarthome.main.MainActivity
 import com.example.smarthome.setting.SettingActivity
 import com.example.smarthome.utils.PreferencesUtil
 import kotlinx.android.synthetic.main.activity_login.*
@@ -48,7 +48,7 @@ class LoginActivity : AppCompatActivity(), ILoginContract.IViewContract {
 
     override fun onGetTokenSuccess(token: String) {
         PreferencesUtil().saveToken(this, token)
-        startActivity(Intent(this, Main2Activity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
     override fun onGetTokenFail() {

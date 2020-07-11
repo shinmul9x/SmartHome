@@ -16,14 +16,18 @@ class DevicePresenter(
 
     override fun getDeviceList(homeId: String, roomId: String) {
         ApiManager().getApiService(context)
-            .getDeviceList(PreferencesUtil().getToken(context), homeId, roomId)
+            .getDeviceList(PreferencesUtil().getToken(context), roomId)
             .enqueue(object : Callback<DeviceResponse> {
                 override fun onResponse(
                     call: Call<DeviceResponse>,
                     response: Response<DeviceResponse>
                 ) {
                     if (response.code() == 200) {
-                        val devices = response.body()?.data ?: return
+                        val devices = response.body()?.device
+                        if (devices == null) {
+                            view.onGetDeviceListFail()
+                            return
+                        }
                         view.onGetDeviceListSuccess(ArrayList(devices))
                     } else {
                         DebugLog().d("${response.code()}: ${response.message()}")

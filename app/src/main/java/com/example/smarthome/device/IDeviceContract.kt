@@ -1,6 +1,7 @@
 package com.example.smarthome.device
 
 import com.example.smarthome.api.response.device.Device
+import com.example.smarthome.api.response.device.DeviceItem
 
 interface IDeviceContract {
     interface IPresenterContract {
@@ -8,6 +9,7 @@ interface IDeviceContract {
     }
 
     interface IViewContract {
-        fun onGetDeviceListSuccess(devices: ArrayList<Device?>)
+        fun onGetDeviceListSuccess(devices: ArrayList<DeviceItem?>)
+        fun onGetDeviceListFail()
     }
 }
